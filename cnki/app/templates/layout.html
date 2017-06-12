@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="{{ url_for('static', filename='js/jquery-3.1.1.slim.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/tether.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" ></script>
+
+    <script src="{{ url_for('static', filename='js/Chart.min.js') }}" ></script>
+    <script src="{{ url_for('static', filename='js/jquery.dataTables.min.js') }}" ></script>
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link href="{{ url_for('static', filename='css/cover.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/jquery.dataTables.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+    <title>{% block subtitle %}{% endblock %} - CNKI 知网爬虫数据分析</title>
+    {% endblock %}
+  </head>
+  <body {% block background %}{% endblock %}>
+    <div class="site-wrapper">
+      <div class="{% block stick_to_top %}site-wrapper-inner {% endblock %}">
+        <div class="cover-container">
+          <div class="masthead clearfix {% block position %}{% endblock %}">
+            <div class="inner">
+              <h3 class="masthead-brand"><a href='/' style="text-decoration: none">知网爬虫</a></h3>
+              {% block searchbox %}
+              <form name='search' action='/search' method='GET'>
+              <input type="text" class="form-control searchbox" name='query' placeholder="搜索论文">
+              <input type="submit" style="position: absolute; left: -9999px"/>
+              </form>
+              {% endblock %}
+              <nav class="nav nav-masthead">
+                <a class="nav-link {% block active %}{% endblock %}" href="/">首页</a>
+                <a class="nav-link {% block active_charts %}{% endblock %}" href="/more">统计</a>
+              </nav>
+            </div>
+          </div>
+          {% block body %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

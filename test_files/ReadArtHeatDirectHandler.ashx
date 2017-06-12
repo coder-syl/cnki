@@ -1,0 +1,1 @@
+var josnresult=[{"fn":"ZGDC201503001","value":"0.53"}]

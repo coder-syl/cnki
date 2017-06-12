@@ -1,0 +1,25 @@
+# HTTP Cookie File for domains related to cnki.net.
+# Downloaded with cookies.txt Chrome Extension (https://chrome.google.com/webstore/detail/njabckikapfpffapmjgojcnbfjonfjfg)
+# Example:  wget -x --load-cookies cookies.txt http://kns.cnki.net/kns/brief/brief.aspx?curpage=8&amp;RecordsPerPage=50&amp;QueryID=0&amp;ID=&amp;turnpage=1&amp;tpagemode=L&amp;dbPrefix=SCDB&amp;Fields=&amp;DisplayMode=listmode&amp;PageName=ASP.brief_default_result_aspx#J_ORDER&amp;
+#
+kns.cnki.net	FALSE	/KCMS/detail	FALSE	0	gsScrollPos	
+kns.cnki.net	FALSE	/kns/brief	FALSE	0	gsScrollPos	
+.cnki.net	TRUE	/	FALSE	4647254409	Ecp_ClientId	2170407235904575751
+.cnki.net	TRUE	/	FALSE	1806940867	cnkiUserKey	073365b7-5b91-06e1-7f7b-b89cd7cfaf77
+www.cnki.net	FALSE	/	FALSE	0	SID	91002
+my.cnki.net	FALSE	/	FALSE	0	SID	020102
+kns.cnki.net	FALSE	/	FALSE	0	ASP.NET_SessionId	qwtlviznogzs03xlqhpvr4ly
+kns.cnki.net	FALSE	/	FALSE	0	SID_kns	123115
+acad.cnki.net	FALSE	/	FALSE	0	SID_sug	111006
+kns.cnki.net	FALSE	/	FALSE	0	SID_klogin	125142
+kns.cnki.net	FALSE	/	FALSE	0	SID_crrs	125132
+search.cnki.net	FALSE	/	FALSE	0	SID_sug	111055
+kns.cnki.net	FALSE	/	FALSE	0	SID_kredis	125143
+kns.cnki.net	FALSE	/	FALSE	0	SID_krsnew	125133
+kns.cnki.net	FALSE	/	FALSE	0	SID_kcms	124105
+adp.cnki.net	FALSE	/	FALSE	0	SID	201100
+app.cnki.net	FALSE	/	FALSE	0	ASP.NET_SessionId	lizflapf3m0fzlxo5xjnkakd
+image.cnki.net	FALSE	/	FALSE	0	SID	131182
+kns.cnki.net	FALSE	/	FALSE	0	SID_knsdelivery	125123
+kns.cnki.net	FALSE	/	FALSE	253402300801	RsPerPage	50
+.cnki.net	TRUE	/	FALSE	1492440811	Ecp_IpLoginFail	170414117.136.68.55, 150.138.141.4

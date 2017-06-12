@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="body">
+  {% for paper in papers %}
+  <p><a href='/paper/{{ paper.id }}'>{{ paper.title }}</a></p>
+  {% endfor %}
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <a class="page-link" href="{{ url_for('main.search', query=query, page=page-1) }}"> <li class="page-item {% if page==1 %}disabled{% endif %}">上一页</li></a>
+      <a class="page-link" href="{{ url_for('main.search', query=query, page=page+1) }}"> <li class="page-item {% if page==total_pages%} disabled {% endif %}">下一页</li></a>
+    </ul>
+  </nav>
+</div>
+
+{% endblock %}

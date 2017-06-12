@@ -1,0 +1,7 @@
+*.pyc
+venv/*
+.idea/*
+__pycache__/*
+*.db
+migrations/*
+.DS_STORE

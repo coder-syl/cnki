@@ -1,0 +1,154 @@
+{% extends 'layout.html' %}
+{% set active_page = 'more' %}
+{% block active_charts %}active{%endblock%}
+{% block position %}clear{% endblock %}
+{% block searchbox %}
+<form name='search' action='/search_query' method='GET'>
+  <input type="text" class="form-control searchbox" name='query' placeholder="搜索关键词">
+  <input type="submit" style="position: absolute; left: -9999px"/>
+</form>
+{% endblock %}
+
+{% block body %}
+
+{% if not fuzzy %}
+<div class="main">
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#keywords-tab" role="tab">关键词</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#years-tab" role="tab">年份</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#orgs-tab" role="tab">大学机构</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="keywords-tab" role="tabpanel">
+      <label>
+        十大关键词饼图
+        <canvas id="keywords-chart" width="500" height="500"></canvas>
+      </label>
+    </div>
+    <div class="tab-pane" id="years-tab" role="tabpanel">
+      <label>
+        年份图表
+      </label>
+      <canvas id="years-chart" width="500" height="500"></canvas>
+    </div>
+    <div class="tab-pane" id="orgs-tab" role="tabpanel">
+      <label>
+        大学机构图表
+      </label>
+      <canvas id="orgs-chart" width="500" height="500"></canvas>
+    </div>
+  </div>
+  <script>
+Chart.defaults.global.legend.display = false;
+var orgs_ctx = $('#orgs-chart');
+var myChart = new Chart(orgs_ctx, {
+  type: 'bar',
+  data: {
+    labels: {{ orgs_label|safe }},
+    datasets: [{
+      label: '总计',
+      data: {{ orgs_counts|safe }},
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+        'rgba(25, 23, 23, 0.2)',
+        'rgba(219, 61, 61, 0.2)',
+        'rgba(0, 242, 255, 0.2)',
+        'rgba(0, 8, 247, 0.2)',
+      ]
+    }]
+  }
+});
+var keyword_ctx = $("#keywords-chart");
+var myChart = new Chart(keyword_ctx, {
+  type: 'bar',
+  data: {
+    labels: {{ keywords_label|safe }},
+    datasets: [{
+      label: '总计',
+      data: {{ counts|safe }},
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+        'rgba(25, 23, 23, 0.2)',
+        'rgba(219, 61, 61, 0.2)',
+        'rgba(0, 242, 255, 0.2)',
+        'rgba(0, 8, 247, 0.2)',
+      ],
+      borderWidth: 1,
+
+    }]
+  }});
+var years_ctx = $("#years-chart");
+var myChart = new Chart(years_ctx, {
+  type: 'line',
+  data: {
+    labels: {{ years_label|safe }},
+    datasets: [{
+      label: '总计',
+      data: {{ years_counts|safe }},
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+        'rgba(25, 23, 23, 0.2)',
+        'rgba(219, 61, 61, 0.2)',
+        'rgba(0, 242, 255, 0.2)',
+        'rgba(0, 8, 247, 0.2)',
+      ],
+      borderColor: [
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(25, 23, 23, 1)',
+        'rgba(219, 61, 61, 1)',
+        'rgba(0, 242, 255, 1)',
+        'rgba(0, 8, 247, 1)',
+      ],
+      borderWidth: 1,
+      options: {
+        legend: {
+          display: false
+        },
+      }
+    }]
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero:true
+        }
+      }]
+    }
+  }
+});
+  </script>
+</div>
+{% else %}
+{{ fuzzy|safe }}
+{% endif %}
+{% endblock %}
+
+{% block background %}
+{% endblock %}

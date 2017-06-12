@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block subtitle %}首页{% endblock %}
+{% block active %}active{% endblock %}
+
+{% block body %}
+<div class="inner cover">
+  <h1 class="cover-heading">知网</h1>
+  <p class="lead">基于关键词的论文爬取和分析系统的设计与实现</p>
+  <p>{{ papers_count }} 篇论文 | {{ keywords_count }} 个关键词 </p>
+  <p class="lead">
+  <a href="{{ url_for('main.more')  }}" class="btn btn-lg btn-secondary">更多</a>
+  </p>
+</div>
+{% endblock %}
+{% block background %}
+{% endblock %}

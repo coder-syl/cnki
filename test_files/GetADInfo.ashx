@@ -1,0 +1,1 @@
+document.write("<div><a href='http://bianke.cnki.net/home/Corpus/9725.html' target='_blank'><img src='http://adp.cnki.net/adfiles/ad/2017/0215/636227527180625000.jpg' border='0' width='226' height='100' alt='新CNKI.NET知网节头部左侧专题推送图片栏位226*100' /></a><input id='G0015' type='hidden' value='CNKI' /></div>");
